@@ -3,4 +3,13 @@ version: '3'
 # Here are the containers that need to be created
 # 1 - redis-server : make it using the redis image
 # 2 - node-app : Make it using Dockerfile in current directory
-# Map port 8001 to 8081
+# Map port 4001 to 8081
+
+# Service ~~ container
+services:
+  redis-server:
+    image: "redis"
+  node-app:
+    build: .
+    ports:
+      - "4001:8081" # "{port on local machine}:{port of the container}"
